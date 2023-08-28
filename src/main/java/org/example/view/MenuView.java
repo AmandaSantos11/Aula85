@@ -29,15 +29,21 @@ public class MenuView {
                     System.out.println("Digite o código:");
                     code = scanner.nextInt();
                     bookModel.setCode(code);
+
+                    scanner.nextLine();
+
                     System.out.println("Digite o nome do livro:");
-                    nameBook = scanner.next();
+                    nameBook = scanner.nextLine();
                     bookModel.setNameBook(nameBook);
+
                     System.out.println("Digite o nome do autor:");
-                    nameAuthor = scanner.next();
+                    nameAuthor = scanner.nextLine();
+
                     bookModel.setNameAuthor(nameAuthor);
                     System.out.println("Digite a data de lançamento:");
-                    date = scanner.next();
+                    date = scanner.nextLine();
                     bookModel.setDate(date);
+
                     bookService.register(bookModel.getCode(),bookModel.getNameBook(),bookModel.getNameAuthor(),bookModel.getDate());
                     break;
 

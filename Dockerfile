@@ -1,7 +1,11 @@
 FROM openjdk:11
 
-COPY src/main/java/org/example/Biblioteca.java .
+WORKDIR /app
 
-RUN javac Biblioteca.java
+COPY . /app
 
-CMD ["java", "Biblioteca"]
+RUN apt-get update && apt-get install -y maven
+
+RUN mvn clean install
+
+CMD ["java", "-jar", "target/Biblioteca-1.0-SNAPSHOT.jar"]
